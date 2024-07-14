@@ -1,0 +1,21 @@
+
+<div class="card">
+  <div class="card-body">
+
+    <!-- string '' -->
+    <h4> {{ title }} </h4>
+
+    <div style="display: block;">
+      <p>Here is the graph</p>
+      <canvas baseChart
+        [labels]="doughnutChartLabels"
+        [datasets]="doughnutChartDatasets"
+        [options]="doughnutChartOptions"
+        [legend]="true"
+        [type]="'doughnut'"
+        >
+      </canvas>
+    </div>
+
+  </div>
+</div>

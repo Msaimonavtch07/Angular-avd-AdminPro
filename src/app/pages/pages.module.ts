@@ -1,6 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { BaseChartDirective } from 'ng2-charts';
+
+// Modules
+import { FormsModule } from '@angular/forms';
+import { ComponentModule } from '../components/component.module';
 import { SharedModule } from '../shared/shared.module';
 import { AppRoutingModule } from '../app-routing.module';
 
@@ -20,7 +25,11 @@ import { PageComponent } from './page.component';
   imports: [
     CommonModule,
     SharedModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ComponentModule,
+    BaseChartDirective,
+
   ],
   exports: [
     DashboardComponent,
