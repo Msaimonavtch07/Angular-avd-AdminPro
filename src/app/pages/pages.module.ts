@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { BaseChartDirective } from 'ng2-charts';
 
 // Modules
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ComponentModule } from '../components/component.module';
 import { SharedModule } from '../shared/shared.module';
 import { AppRoutingModule } from '../app-routing.module';
@@ -16,6 +16,7 @@ import { PageComponent } from './page.component';
 import { AccountSettingComponent } from './account-setting/account-setting.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { RxjsComponent } from './rxjs/rxjs.component';
     PageComponent,
     AccountSettingComponent,
     PromesasComponent,
-    RxjsComponent
+    RxjsComponent,
+    PerfilComponent
   ],
   imports: [
     CommonModule,
@@ -35,6 +37,7 @@ import { RxjsComponent } from './rxjs/rxjs.component';
     FormsModule,
     ComponentModule,
     BaseChartDirective,
+    ReactiveFormsModule
 
   ],
   exports: [
