@@ -7,4 +7,31 @@
 .img-avatar {
   height: 200px;
   width: 200px;
+};
+
+.w100 {
+  width: 100;
+};
+
+.w140 {
+  width: 140;
+};
+
+.Avatar {
+  border-radius: 0%;
+  width: 40;
+};
+
+.oculto {
+  display: none;
+};
+
+.fondo-model-imagen {
+  background-color: rgba( 0, 0, 0, 0.4);
+  left: 0px;
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  top: 0px;
+  z-index: 9999;
 }
