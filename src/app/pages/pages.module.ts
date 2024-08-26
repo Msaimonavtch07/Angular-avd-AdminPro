@@ -2,12 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { BaseChartDirective } from 'ng2-charts';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Modules
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ComponentModule } from '../components/component.module';
 import { SharedModule } from '../shared/shared.module';
 import { AppRoutingModule } from '../app-routing.module';
+import { PipesModule } from '../pipes/pipes.module';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
@@ -20,6 +21,9 @@ import { PerfilComponent } from './perfil/perfil.component';
 
 // CP. mantenimientos
 import { UsuariosComponent } from './mantenimientos/usuarios/usuarios.component';
+import { HospitalesComponent } from './mantenimientos/hospitales/hospitales.component';
+import { MedicosComponent } from './mantenimientos/medicos/medicos.component';
+import { MedicoComponent } from './mantenimientos/medicos/medico.component';
 
 
 @NgModule({
@@ -34,7 +38,10 @@ import { UsuariosComponent } from './mantenimientos/usuarios/usuarios.component'
     PerfilComponent,
 
     // CP. mantenimientos
-    UsuariosComponent
+    UsuariosComponent,
+      HospitalesComponent,
+      MedicosComponent,
+      MedicoComponent
   ],
   imports: [
     CommonModule,
@@ -43,7 +50,8 @@ import { UsuariosComponent } from './mantenimientos/usuarios/usuarios.component'
     FormsModule,
     ComponentModule,
     BaseChartDirective,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PipesModule,
 
   ],
   exports: [
