@@ -36,6 +36,11 @@ export class UsuariosService {
     return localStorage.getItem('token') || '';
   };
 
+  get role(): 'ADMIN_ROLE' | 'USER_ROLE' {
+
+    return this.usuario.role;
+  };
+
   get uid(): string {
     return this.usuario.uid || '';
   };
@@ -46,6 +51,13 @@ export class UsuariosService {
         'x-token': this.token
       }
     }
+  };
+
+  guardarLocalStorage( token: string, menu: any ) {
+
+    localStorage.setItem('token', token );
+    localStorage.setItem('menu', JSON.stringify(menu) );
+
   };
 
   googleInit() {
@@ -65,6 +77,8 @@ export class UsuariosService {
 
   logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('menu');
+    // TODO: borrar todo...
 
     this.auth2.signOut().then(() => {
 
@@ -99,7 +113,8 @@ export class UsuariosService {
 
         // Con fin demostrativo...
         /* this.usuario.imprimirUsuario(); */
-        localStorage.setItem('token', resp.token );
+
+        this.guardarLocalStorage( resp.token, resp.menu );
 
         return true;
       }),
@@ -110,7 +125,14 @@ export class UsuariosService {
 
   crearUsuario( formData: registerForm ) {
 
-    return this.http.post(` ${ base_url }/usuarios `, formData );
+    return this.http.post(` ${ base_url }/usuarios `, formData )
+        .pipe(
+          tap( (resp: any) => {
+
+            this.guardarLocalStorage( resp.token, resp.menu );
+
+          })
+        )
 
   };
 
@@ -130,7 +152,9 @@ export class UsuariosService {
     return this.http.post(` ${ base_url }/login `, formData )
         .pipe(
           tap( (resp: any) => {
-            localStorage.setItem( 'token', resp.token )
+
+            this.guardarLocalStorage( resp.token, resp.menu );
+
           })
         );
 
@@ -141,7 +165,9 @@ export class UsuariosService {
     return this.http.post(` ${ base_url }/login/google `, {token} )
         .pipe(
           tap( (resp: any) => {
-            localStorage.setItem( 'token', resp.token )
+
+            this.guardarLocalStorage( resp.token, resp.menu );
+
           })
         );
 

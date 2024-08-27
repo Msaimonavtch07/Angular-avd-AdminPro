@@ -1,0 +1,128 @@
+<div class="row">
+
+  <div class="col-4">
+      <div class="card">
+          <div class="card-body">
+            <h3>Usuarios</h3>
+
+            <div class="alert alert-info"
+                 *ngIf="usuario.length === 0"
+                 >
+              <p class="mb-1">
+                No hay usuarios con este termino...
+              </p>
+            </div>
+
+            <div class="table-responsive"
+                 *ngIf="usuario.length > 0"
+                 >
+              <table class="table">
+                  <thead>
+                      <tr>
+                          <th>Avatar</th>
+                          <th>nombre</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let usuarios of usuario"
+                          class="w-100">
+                          <td>
+                            <img src="usuarios.img" alt="">
+                          </td>
+                          <td> {{usuarios.nombre}} </td>
+                      </tr>
+
+                  </tbody>
+              </table>
+          </div>
+
+          </div>
+      </div>
+  </div>
+
+  <div class="col-4">
+    <div class="card">
+        <div class="card-body">
+          <h3>Hospitales</h3>
+
+          <div class="alert alert-info"
+               *ngIf="hospital.length === 0"
+               >
+            <p class="mb-1">
+              No hay Hospitales con este termino...
+            </p>
+          </div>
+
+          <div class="table-responsive"
+               *ngIf="hospital.length > 0"
+               >
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>foto</th>
+                        <th>nombre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let hospitales of hospital"
+                       class="w-100"
+                       >
+                    <td>
+                      <img src="hospitales.img" alt="">
+                    </td>
+                    <td> {{hospitales.nombre}} </td>
+                  </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        </div>
+    </div>
+  </div>
+
+  <div class="col-4">
+    <div class="card">
+      <div class="card-body">
+        <h3>Medicos</h3>
+
+        <div class="alert alert-info"
+             *ngIf="hospital.length === 0"
+             >
+          <p class="mb-1">
+            No hay Medicos con este termino...
+          </p>
+        </div>
+
+        <div class="table-responsive"
+             *ngIf="hospital.length > 0"
+             >
+          <table class="table">
+              <thead>
+                  <tr>
+                      <th>Foto</th>
+                      <th>Medico</th>
+                  </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let medicos of medico"
+                    class="w-100"
+                    >
+                  <td>
+                    <img src="medicos.img" alt="">
+                  </td>
+                  <td>
+                    <a routerLink="['/dashboard/medico', medicos._id]"></a>
+                    {{medicos.nombre}}
+                  </td>
+                </tr>
+
+              </tbody>
+          </table>
+      </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

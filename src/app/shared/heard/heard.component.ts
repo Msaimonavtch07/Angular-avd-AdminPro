@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import { UsuariosService } from '../../services/usuarios.service';
 import { Usuario } from '../../models/usuario.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-heard',
@@ -14,7 +15,8 @@ export class HeardComponent {
   public usuario: Usuario;
 
   constructor(
-    private usuariosService: UsuariosService
+    private usuariosService: UsuariosService,
+    private router: Router,
   ) {
     // this.imgUrl = usuariosService.usuario.imagenUrl;
     this.usuario = usuariosService.usuario;
@@ -22,6 +24,14 @@ export class HeardComponent {
 
   logout() {
     this.usuariosService.logout();
+  };
+
+  buscar(termino: string) {
+    if( termino.length === 0 ) {
+      return
+    };
+
+    this.router.navigateByUrl(` dashboard/buscar/${termino} `)
   };
 
 }
